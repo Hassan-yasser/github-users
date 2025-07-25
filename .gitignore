@@ -1,41 +1,42 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+# logs
+logs
+*.log
+*.log.*
 
-# dependencies
-/node_modules
-/.pnp
-.pnp.*
-.yarn/*
-!.yarn/patches
-!.yarn/plugins
-!.yarn/releases
-!.yarn/versions
+# IDEs and editors
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
 
-# testing
-/coverage
+# OS generated
+Thumbs.db
+ehthumbs.db
+Icon?
+desktop.ini
 
-# next.js
-/.next/
-/out/
+# eslint / prettier cache
+.eslintcache
+.prettiercache
 
-# production
-/build
+# build analyzer
+.nyc_output/
 
-# misc
-.DS_Store
-*.pem
+# storybook
+.out/
 
-# debug
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-.pnpm-debug.log*
+# playwright / cypress / vitest
+/playwright-report
+/test-results
+/cypress/videos
+/cypress/screenshots
+/vitest-*
 
-# env files (can opt-in for committing if needed)
-.env*
+# npm cache
+.npm/
 
-# vercel
-.vercel
+# Turbo repo cache (if using turbo)
+turbo/
 
-# typescript
-*.tsbuildinfo
-next-env.d.ts
+# SWC cache (used by Next.js)
+.swc/
