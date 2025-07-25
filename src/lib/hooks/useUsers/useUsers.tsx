@@ -5,13 +5,15 @@ import {
 } from "@/redux/PersistSlices/favorites-users/favoritesuUsers";
 import { DispatchType, SelectorState } from "@/redux/PersistStore";
 import { fetchUsers, resetUsers, User } from "@/redux/slices/users/UsersList";
-import React, { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useRouter } from "next/navigation";
 
 const useUsers = () => {
   const dispatch = useDispatch<DispatchType>();
+  const Router = useRouter();
   const [loaderPage, setLoaderPage] = useState(true);
-  
+  const [searchQuery, setSearchQuery] = useState<string>("");
   const { users, searchResults, isLoading, page, hasMore, isSearching } =
     useSelector((state: SelectorState) => state.usersSlice);
   const favorites = useSelector(
@@ -64,6 +66,9 @@ const useUsers = () => {
       dispatch(resetUsers());
     }
   }, [searchQuery, dispatch]);
+  const goFavorite = useCallback(() => {
+    Router.push("/favorites-users");
+  }, []);
   return {
     favorites,
     uniqueUsers,
@@ -72,6 +77,9 @@ const useUsers = () => {
     isLoading,
     hasMore,
     loaderPage,
+    setSearchQuery,
+    searchQuery,
+    goFavorite,
   };
 };
 

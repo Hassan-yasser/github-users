@@ -35,7 +35,9 @@ const Favorites = () => {
               />
             ))
           ) : (
-            <NoDataFound message={`There is no user with this name`} />
+            <div className="w-full col-span-full  ">
+              <NoDataFound message={`There No Users In Favorite`} />
+            </div>
           )}
         </AnimatePresence>
       </div>

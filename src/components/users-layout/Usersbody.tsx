@@ -43,7 +43,9 @@ const Usersbody = ({
               />
             ))
           ) : (
-            <NoDataFound message={`There is no users with this name`} />
+            <div className="w-full col-span-full">
+              <NoDataFound message={`There is no users with this name`} />
+            </div>
           )}
         </AnimatePresence>
       </div>

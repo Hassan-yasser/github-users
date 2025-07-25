@@ -17,11 +17,11 @@ const SearchInput: React.FC<SearchInputProps> = ({ onChange, placeholder }) => {
 
   return (
     <div className="flex items-center gap-2 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-full px-4 py-2 shadow-md w-full mx-auto transition-colors duration-300">
-      <FaSearch className="text-gray-400 dark:text-gray-300" />
+      <FaSearch className="text-[#ff7701] dark:text-gray-300" />
       <input
         type="text"
         placeholder={placeholder}
-        className="flex-1 outline-none text-gray-700 dark:text-white bg-transparent placeholder-gray-400 dark:placeholder-gray-500"
+        className="w-full outline-none text-[10px] sm:text-sm text-gray-700 dark:text-white bg-transparent placeholder-gray-400 dark:placeholder-gray-500"
         value={search}
         onChange={(e) => setSearch(e.target.value)}
       />

@@ -4,6 +4,7 @@ import { persistReducer, persistStore } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 
 import usersSlice from "./slices/users/UsersList";
+import ThemeSlice from "./slices/Theme/ThemeSlice";
 import { favoritesReducer } from "./PersistSlices/favorites-users/favoritesuUsers";
 
 const favoritesPersistConfig = {
@@ -13,6 +14,7 @@ const favoritesPersistConfig = {
 
 const rootReducer = combineReducers({
   usersSlice,
+  ThemeSlice,
   favoritesSlice: persistReducer(favoritesPersistConfig, favoritesReducer),
 });
 

@@ -20,7 +20,13 @@ const CardUser: React.FC<CardUserProps> = ({
   showProfile,
 }) => {
   return (
-    <motion.div className="bg-[#ff7701] text-white dark:bg-gray-800 dark:text-white p-4 rounded-2xl shadow-lg relative group overflow-hidden">
+    <motion.div
+      initial={{ opacity: 0, y: 50 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -50 }}
+      transition={{ duration: 0.5, ease: "easeInOut" }}
+      className="bg-[#ff7701] text-white dark:bg-gray-800 dark:text-white p-4 rounded-2xl shadow-lg relative group overflow-hidden"
+    >
       <div className="relative">
         {showProfile ? (
           <a
@@ -53,9 +59,9 @@ const CardUser: React.FC<CardUserProps> = ({
           transition={{ duration: 0.3 }}
         >
           {favorite ? (
-            <FaHeart className="text-[#ff7701]" />
+            <FaHeart className="text-[#ff7701] dark:text-white" />
           ) : (
-            <IoMdHeartEmpty className="text-[#ff7701]" />
+            <IoMdHeartEmpty className="text-[#ff7701] dark:text-white" />
           )}
         </motion.div>
       </div>

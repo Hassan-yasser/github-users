@@ -40,3 +40,4 @@ turbo/
 
 # SWC cache (used by Next.js)
 .swc/
+node_modules
