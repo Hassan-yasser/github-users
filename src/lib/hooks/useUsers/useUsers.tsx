@@ -4,13 +4,14 @@ import {
   removeFromFavorite,
 } from "@/redux/PersistSlices/favorites-users/favoritesuUsers";
 import { DispatchType, SelectorState } from "@/redux/PersistStore";
-import { fetchUsers, User } from "@/redux/slices/users/UsersList";
+import { fetchUsers, resetUsers, User } from "@/redux/slices/users/UsersList";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 const useUsers = () => {
   const dispatch = useDispatch<DispatchType>();
   const [loaderPage, setLoaderPage] = useState(true);
+  
   const { users, searchResults, isLoading, page, hasMore, isSearching } =
     useSelector((state: SelectorState) => state.usersSlice);
   const favorites = useSelector(
@@ -56,6 +57,13 @@ const useUsers = () => {
     seen.add(user.id);
     return true;
   });
+  useEffect(() => {
+    if (searchQuery.trim()) {
+      dispatch(fetchUsers({ page: 1, search: searchQuery }));
+    } else {
+      dispatch(resetUsers());
+    }
+  }, [searchQuery, dispatch]);
   return {
     favorites,
     uniqueUsers,

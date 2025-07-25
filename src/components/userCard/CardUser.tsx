@@ -20,11 +20,12 @@ const CardUser: React.FC<CardUserProps> = ({
   showProfile,
 }) => {
   return (
-    <motion.div className="bg-[#ff7701] text-white p-4 rounded-2xl shadow-lg relative group overflow-hidden">
+    <motion.div className="bg-[#ff7701] text-white dark:bg-gray-800 dark:text-white p-4 rounded-2xl shadow-lg relative group overflow-hidden">
       <div className="relative">
         {showProfile ? (
           <a
             target="_blank"
+            rel="noopener noreferrer"
             className="w-24 h-24 block overflow-hidden rounded-full mx-auto border-4 border-white transition duration-300"
             href={user.html_url}
           >
@@ -39,7 +40,7 @@ const CardUser: React.FC<CardUserProps> = ({
         )}
 
         <motion.div
-          className="absolute -top-2 right-0 bg-white cursor-pointer rounded-full flex items-center justify-center size-[35px]"
+          className="absolute -top-2 right-0 bg-white dark:bg-gray-700 cursor-pointer rounded-full flex items-center justify-center size-[35px]"
           onClick={() => {
             if (favorite) {
               if (removeFromFavorite) removeFromFavorite(user?.id);

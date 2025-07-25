@@ -8,16 +8,23 @@ import LoaderPage from "../Loader-Errors/LoaderPage";
 import ErrorText from "../Loader-Errors/ErrorText";
 import NoDataFound from "../Loader-Errors/NoDataFound";
 
-const Usersbody = () => {
-  const {
-    favorites,
-    uniqueUsers,
-    handleAddToFavorite,
-    handleRemoveFromFavorite,
-    isLoading,
-    hasMore,
-    loaderPage,
-  } = useUsers();
+const Usersbody = ({
+  loaderPage,
+  uniqueUsers,
+  favorites,
+  handleAddToFavorite,
+  handleRemoveFromFavorite,
+  isLoading,
+  hasMore,
+}: {
+  loaderPage: boolean;
+  uniqueUsers: User[];
+  favorites: User[];
+  handleAddToFavorite?: (user: User) => void;
+  handleRemoveFromFavorite?: (userID: number) => void;
+  isLoading: boolean;
+  hasMore: boolean;
+}) => {
   if (loaderPage) return <LoaderPage />;
   return (
     <>
@@ -28,7 +35,7 @@ const Usersbody = () => {
             uniqueUsers.map((user: User) => (
               <CardUser
                 key={user?.id}
-                favorite={favorites.some((fav) => fav.id === user.id)}
+                favorite={favorites.some((fav: User) => fav.id === user.id)}
                 user={user}
                 handleAddToFavorite={handleAddToFavorite}
                 removeFromFavorite={handleRemoveFromFavorite}
