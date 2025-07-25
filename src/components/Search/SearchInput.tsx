@@ -13,7 +13,7 @@ const SearchInput: React.FC<SearchInputProps> = ({ onChange, placeholder }) => {
 
   useEffect(() => {
     onChange(debouncedValue);
-  }, [debouncedValue]);
+  }, [debouncedValue, onChange]);
 
   return (
     <div className="flex items-center gap-2 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-full px-4 py-2 shadow-md w-full mx-auto transition-colors duration-300">

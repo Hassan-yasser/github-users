@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { User } from "@/redux/slices/users/UsersList";
 import { IoMdHeartEmpty } from "react-icons/io";
 import { FaHeart } from "react-icons/fa";
+import Image from "next/image";
 
 interface CardUserProps {
   user: User;
@@ -35,10 +36,18 @@ const CardUser: React.FC<CardUserProps> = ({
             className="w-24 h-24 block overflow-hidden rounded-full mx-auto border-4 border-white transition duration-300"
             href={user.html_url}
           >
-            <img src={user.avatar_url} alt={user.login} className="w-full" />
+            <Image
+              width={200}
+              height={200}
+              src={user.avatar_url}
+              alt={user.login}
+              className="w-full"
+            />
           </a>
         ) : (
-          <img
+          <Image
+            width={200}
+            height={200}
             src={user.avatar_url}
             alt={user.login}
             className="w-24 h-24 block overflow-hidden rounded-full mx-auto border-4 border-white transition duration-300"

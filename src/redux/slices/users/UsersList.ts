@@ -48,7 +48,8 @@ export const fetchUsers = createAsyncThunk<
       const users = search ? res.data.items : res.data;
 
       return { users, searchMode: !!search };
-    } catch (error: any) {
+    } catch (error) {
+      // @ts-expect-error @typescript-eslint/no-explicit-any
       return rejectWithValue(error.message);
     }
   }

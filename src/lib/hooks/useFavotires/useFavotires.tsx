@@ -2,7 +2,7 @@ import ToasterSoonerSuccess from "@/components/Toaster/ToasterSoonerSuccess";
 import { removeFromFavorite } from "@/redux/PersistSlices/favorites-users/favoritesuUsers";
 import { DispatchType, SelectorState } from "@/redux/PersistStore";
 import { User } from "@/redux/slices/users/UsersList";
-import React, { useCallback, useState } from "react";
+import { useCallback, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useRouter } from "next/navigation";
 
@@ -25,7 +25,7 @@ const useFavotires = () => {
   };
   const backFN = useCallback(() => {
     Router.back();
-  }, []);
+  }, [Router]);
   return {
     handleRemoveFromFavorite,
     filteredFavorites,

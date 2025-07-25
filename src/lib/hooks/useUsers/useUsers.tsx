@@ -68,7 +68,7 @@ const useUsers = () => {
   }, [searchQuery, dispatch]);
   const goFavorite = useCallback(() => {
     Router.push("/favorites-users");
-  }, []);
+  }, [Router]);
   return {
     favorites,
     uniqueUsers,
